@@ -1,11 +1,11 @@
-import { userModel } from "../models/user.model.js";
+import { User } from "../models/user.model.js";
 import generateToken from "../utils/token.js";
 import bcrypt from "bcrypt";
 
 export const register = async (req, res) => {
     const { username, email, password } = req.body;
 
-    const alreadyRegistered = await userModel.findOne({
+    const alreadyRegistered = await User.findOne({
         $or: [{ username }, { email }],
     });
 
@@ -13,7 +13,7 @@ export const register = async (req, res) => {
         return res.status(409).json({ message: "Email already in use" });
     }
 
-    const user = await userModel.create({
+    const user = await User.create({
         username,
         email,
         password,
@@ -30,7 +30,7 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
     const { email, password } = req.body;
-    const user = await userModel.findOne({ email: email });
+    const user = await User.findOne({ email: email });
     if (!user) return res.status(401).json({ message: "User does not found" });
 
     const decoded = await bcrypt.compare(password, user.password);

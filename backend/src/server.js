@@ -1,5 +1,4 @@
 import { app } from "./app.js";
-import { DB_NAME } from "./constant.js";
 import mongoDbConnection from "./db/index.js";
 
 mongoDbConnection()
