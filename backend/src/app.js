@@ -5,6 +5,7 @@ import userRouter from "./routes/user.route.js";
 import budgetRouter from "./routes/budget.route.js";
 import categoryRouter from "./routes/category.route.js";
 import transactionRouter from "./routes/transaction.route.js";
+import analyticsRouter from "./routes/analytics.route.js"
 
 const app = express();
 
@@ -24,5 +25,6 @@ app.use("/api/auth", userRouter);
 app.use("/api/budgets", budgetRouter);
 app.use("/api/categories", categoryRouter);
 app.use("/api/transactions", transactionRouter);
+app.use("/api/analytics", analyticsRouter)
 
 export { app };
