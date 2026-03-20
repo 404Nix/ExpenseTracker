@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { requireAuth } from "../middlewares/auth.middleware.js";
-import { updateBudget } from "../controllers/budget.controller.js";
+import { getBudgetSummary, updateInserBudget } from "../controllers/budget.controller.js";
 
 const router = Router();
 
-router.get("/", requireAuth, updateBudget);
-router.get("/summary", () => {}, () => {});
+router.put("/", requireAuth, updateInserBudget);
+router.get("/summary", requireAuth, getBudgetSummary);
 
 export default router;

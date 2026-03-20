@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const budgetSchema = mongoose.Schema({
     userId: {
-        type: mongoose.Schema.ObjectId.Types,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         index: true,
         required: [true, "UserId is required"],
