@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { Budget } from "../models/budget.model.js";
 import { Transaction } from "../models/transaction.model.js";
 import { monthRangeUtc } from "../utils/date.js";
@@ -38,7 +39,7 @@ export const getBudgetSummary = async (req, res) => {
     const agg = await Transaction.aggregate([
         {
             $match: {
-                userId: userId,
+                userId: new mongoose.Types.ObjectId(userId),
                 date: { $gte: start, $lt: end },
             },
         },

@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { Category } from "../models/category.model.js";
 import { Transaction } from "../models/transaction.model.js";
 
@@ -51,7 +52,7 @@ export const createTransactions = async (req, res) => {
 
   const newTrx = await Transaction.create({
     userId,
-    categoryId,
+    categoryId: new mongoose.Types.ObjectId(categoryId),
     date: parsedDate,
     amount,
     note: note || "",
