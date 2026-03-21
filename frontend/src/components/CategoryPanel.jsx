@@ -60,7 +60,7 @@ const CategoryPanel = () => {
 
                         <button
                             onClick={() => dispatch(deleteCategory(c.id))}
-                            className="text-red-400 text-xs"
+                            className="text-red-400 text-xs cursor-pointer hover:text-red-600"
                         >
                             ✕
                         </button>

@@ -46,7 +46,7 @@ const Dashboard = () => {
 
         if (percent >= 100) return "⚠️ Budget exceeded!";
 
-        if (percent >= 80) return "⚠️ You’ve used 80% of your budget";
+        if (percent >= 80) return ` ️ You’ve used ${percent.toFixed(1)}% of your budget`
 
         return "All good 👍";
     };
