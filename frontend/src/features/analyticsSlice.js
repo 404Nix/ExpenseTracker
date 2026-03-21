@@ -25,31 +25,31 @@ const initialState = {
     byCategory: [],
     daily: [],
     loading: false,
-  }
+};
 
 export const analyticsSlice = createSlice({
     name: "analytics",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-    builder
-      .addCase(fetchAnalytics.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(fetchAnalytics.fulfilled, (state, action) => {
-        state.loading = false;
+        builder
+            .addCase(fetchAnalytics.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchAnalytics.fulfilled, (state, action) => {
+                state.loading = false;
 
-        state.budget = action.payload.budget;
-        state.spent = action.payload.spent;
-        state.remaining = action.payload.remaining;
-        state.percent = action.payload.percent;
-        state.byCategory = action.payload.byCategory;
-        state.daily = action.payload.daily;
-      })
-      .addCase(fetchAnalytics.rejected, (state) => {
-        state.loading = false;
-      });
-  },
-})
+                state.budget = action.payload.budget;
+                state.spent = action.payload.spent;
+                state.remaining = action.payload.remaining;
+                state.percent = action.payload.percent;
+                state.byCategory = action.payload.byCategory;
+                state.daily = action.payload.daily;
+            })
+            .addCase(fetchAnalytics.rejected, (state) => {
+                state.loading = false;
+            });
+    },
+});
 
 export default analyticsSlice.reducer;

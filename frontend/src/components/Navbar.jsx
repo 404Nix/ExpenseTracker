@@ -1,16 +1,19 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem("token"); // remove token
-        navigate("/login"); // go to login
+        localStorage.removeItem("token");
+        navigate("/login");
     };
 
     return (
         <div className="bg-slate-800 px-6 py-4 flex justify-between items-center shadow-md">
+            <div className="flex">
+            <img className="h-10 w-10" src="../../public/favicon.svg" alt="Logo" />
             <h1 className="text-xl font-bold text-white">Expense Tracker</h1>
+            </div>
 
             <div className="flex items-center gap-6 text-white">
                 <NavLink
@@ -23,12 +26,12 @@ const Navbar = () => {
                 </NavLink>
 
                 <NavLink
-                    to="/analytics"
+                    to="/transactions"
                     className={({ isActive }) =>
                         isActive ? "text-blue-400" : "hover:text-blue-400"
                     }
                 >
-                    Analytics
+                    Transactions
                 </NavLink>
 
                 <button

@@ -14,7 +14,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import Analytics from "./pages/Analytics.jsx";
+import Transactions from "./pages/Transactions.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -30,7 +30,7 @@ const router = createBrowserRouter(
                 }
             >
                 <Route index element={<Dashboard />} />
-                <Route path="/analytics" element={<Analytics />} />
+                <Route path="transactions" element={<Transactions />} />
             </Route>
         </>,
     ),
