@@ -196,4 +196,4 @@ This project demonstrates a complete full-stack application with clean architect
 
 ## 👨‍💻 Author
 
-Built with ❤️ by you 🚀
+Built with ❤️ by me 🚀
