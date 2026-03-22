@@ -30,19 +30,21 @@ const CategoryPanel = () => {
     };
 
     return (
-        <div className="bg-slate-800 p-6 rounded-xl">
-            <h2 className="mb-4">Categories</h2>
+        <div className="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-xl">
+            <h2 className="mb-4 text-zinc-900 dark:text-white font-semibold">
+                Categories
+            </h2>
 
             <div className="flex gap-2 mb-4">
                 <input
-                    className="flex-1 p-2 bg-slate-700 rounded"
+                    className="flex-1 p-2 bg-zinc-200 dark:bg-zinc-700 rounded text-zinc-900 dark:text-white placeholder:text-zinc-500"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
 
                 <button
                     onClick={handleAdd}
-                    className="bg-blue-500 px-3 rounded"
+                    className="bg-blue-500 hover:bg-blue-600 transition px-3 rounded text-white"
                 >
                     Add
                 </button>
@@ -54,7 +56,7 @@ const CategoryPanel = () => {
                 {items.map((c) => (
                     <div
                         key={c.id}
-                        className="bg-slate-700 px-3 py-1 rounded-full flex gap-2 items-center"
+                        className="bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-white px-3 py-1 rounded-full flex gap-2 items-center"
                     >
                         {c.name}
 

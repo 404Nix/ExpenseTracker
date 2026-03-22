@@ -16,25 +16,33 @@ const TransactionsList = () => {
     if (loading) return <p className="text-gray-400">Loading...</p>;
 
     return (
-        <div className="bg-slate-800 p-6 rounded-xl space-y-3">
-            <h2 className="mb-4">Transactions</h2>
+        <div className="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-xl space-y-3">
+            <h2 className="mb-4 text-zinc-900 dark:text-white font-semibold">
+                Transactions
+            </h2>
             {items.length === 0 ? (
-                <p className="text-gray-400">No transactions to display.</p>
+                <p className="text-zinc-500 dark:text-gray-400">
+                    No transactions to display.
+                </p>
             ) : null}
             {items.map((t) => (
                 <div
                     key={t.id}
-                    className="flex justify-between items-center bg-slate-700 p-3 rounded"
+                    className="flex justify-between items-center bg-zinc-200 dark:bg-zinc-700 p-3 rounded"
                 >
                     <div>
-                        <p className="font-semibold">₹{t.amount}</p>
+                        <p className="font-semibold text-zinc-900 dark:text-white">
+                            ₹{t.amount}
+                        </p>
                         {t.note && (
-                            <p className="text-sm text-gray-400">{t.note}</p>
+                            <p className="text-sm text-zinc-500 dark:text-gray-400">
+                                {t.note}
+                            </p>
                         )}
                     </div>
 
                     <div className="flex flex-col items-end">
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-zinc-500 dark:text-gray-400">
                             {new Date(t.date).toLocaleDateString()}
                         </p>
 

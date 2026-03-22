@@ -7,13 +7,13 @@ const CategoryPieChart = () => {
     const { byCategory } = useSelector((state) => state.analytics);
 
     return (
-        <div className="bg-slate-800 p-4 rounded-xl shadow-md">
-            <div className="mb-3 text-sm font-semibold text-white">
+        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-xl shadow-md">
+            <div className="mb-3 text-sm font-semibold text-zinc-900 dark:text-white">
                 Spending by category
             </div>
 
             {byCategory.length === 0 ? (
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-zinc-500 dark:text-gray-400">
                     No expenses yet for this month.
                 </div>
             ) : (
@@ -40,15 +40,16 @@ const CategoryPieChart = () => {
                 </div>
             )}
 
-            {/* Category list */}
             <div className="mt-4 space-y-1">
                 {byCategory.slice(0, 6).map((c) => (
                     <div
                         key={c.categoryId}
                         className="flex justify-between text-sm"
                     >
-                        <span className="text-gray-300">{c.categoryName}</span>
-                        <span className="text-white font-medium">
+                        <span className="text-zinc-500 dark:text-gray-300">
+                            {c.categoryName}
+                        </span>
+                        <span className="text-zinc-900 dark:text-white font-medium">
                             ₹{c.total}
                         </span>
                     </div>

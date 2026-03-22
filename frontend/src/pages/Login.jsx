@@ -34,18 +34,18 @@ const Login = () => {
     };
 
     return (
-        <div className="h-screen flex items-center justify-center bg-slate-900 text-white">
-            <div className="bg-slate-800 p-6 rounded-xl w-80">
+        <div className="h-screen flex items-center justify-center bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white">
+            <div className="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-xl w-80">
                 <h1 className="text-xl mb-4">Login</h1>
 
                 <input
-                    className="w-full mb-3 p-2 rounded bg-slate-700"
+                    className="w-full mb-3 p-2 rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500"
                     placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
                 />
 
                 <input
-                    className="w-full mb-3 p-2 rounded bg-slate-700"
+                    className="w-full mb-3 p-2 rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500"
                     placeholder="Password"
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
@@ -53,7 +53,7 @@ const Login = () => {
                 {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
                 <button
                     onClick={handleLogin}
-                    className="w-full bg-blue-500 p-2 rounded"
+                    className="w-full bg-blue-500 hover:bg-blue-600 transition p-2 rounded text-white"
                 >
                     Login
                 </button>

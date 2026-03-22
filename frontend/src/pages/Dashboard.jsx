@@ -46,7 +46,8 @@ const Dashboard = () => {
 
         if (percent >= 100) return "⚠️ Budget exceeded!";
 
-        if (percent >= 80) return ` ️ You’ve used ${percent.toFixed(1)}% of your budget`
+        if (percent >= 80)
+            return ` ️ You’ve used ${percent.toFixed(1)}% of your budget`;
 
         return "All good 👍";
     };
@@ -56,13 +57,13 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="p-6 text-white space-y-6">
+        <div className="p-6 text-zinc-900 dark:text-white space-y-6">
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-bold tracking-tight">
                         Dashboard
                     </h1>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-zinc-500 dark:text-gray-400">
                         Track your spending and stay on budget.
                     </p>
                 </div>
@@ -71,7 +72,7 @@ const Dashboard = () => {
                     type="month"
                     value={month}
                     onChange={(e) => setMonth(e.target.value)}
-                    className="bg-slate-800 p-2 rounded-lg border border-slate-700"
+                    className="bg-zinc-100 dark:bg-zinc-800 p-2 rounded-lg border border-zinc-300 dark:border-zinc-700"
                 />
             </div>
 
@@ -86,12 +87,12 @@ const Dashboard = () => {
             >
                 <p className="text-sm mb-2">
                     {getAlert()}{" "}
-                    <span className="text-gray-400">
+                    <span className="text-zinc-500 dark:text-gray-400">
                         ₹{spent} / ₹{budget}
                     </span>
                 </p>
 
-                <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-zinc-200 dark:bg-zinc-700 h-2 rounded-full overflow-hidden">
                     <div
                         className={`h-full ${
                             percent >= 100
@@ -106,33 +107,43 @@ const Dashboard = () => {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-4 rounded-xl shadow">
-                    <p className="text-sm text-gray-400">Budget</p>
+                <div className="bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 p-4 rounded-xl shadow">
+                    <p className="text-sm text-zinc-500 dark:text-gray-400">
+                        Budget
+                    </p>
                     <p className="text-xl font-semibold">₹{budget}</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-4 rounded-xl shadow">
-                    <p className="text-sm text-gray-400">Spent</p>
+                <div className="bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 p-4 rounded-xl shadow">
+                    <p className="text-sm text-zinc-500 dark:text-gray-400">
+                        Spent
+                    </p>
                     <p className="text-xl font-semibold">₹{spent}</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-4 rounded-xl shadow">
-                    <p className="text-sm text-gray-400">Remaining</p>
+                <div className="bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 p-4 rounded-xl shadow">
+                    <p className="text-sm text-zinc-500 dark:text-gray-400">
+                        Remaining
+                    </p>
                     <p className="text-xl font-semibold">₹{remaining}</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-4 rounded-xl shadow">
-                    <p className="text-sm text-gray-400">Usage</p>
+                <div className="bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 p-4 rounded-xl shadow">
+                    <p className="text-sm text-zinc-500 dark:text-gray-400">
+                        Usage
+                    </p>
                     <p className="text-xl font-semibold">
                         {percent.toFixed(1)}%
                     </p>
                 </div>
             </div>
 
-            <div className="bg-slate-800 p-4 rounded-xl flex justify-between items-center border border-slate-700">
+            <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-xl flex justify-between items-center border border-zinc-300 dark:border-zinc-700">
                 <div>
                     <h2 className="font-semibold">Add to Budget</h2>
-                    <p className="text-sm text-gray-400">Current: ₹{budget}</p>
+                    <p className="text-sm text-zinc-500 dark:text-gray-400">
+                        Current: ₹{budget}
+                    </p>
                 </div>
 
                 <div className="flex gap-2">
@@ -141,7 +152,7 @@ const Dashboard = () => {
                         placeholder="+ amount"
                         value={budgetInput}
                         onChange={(e) => setBudgetInput(e.target.value)}
-                        className="bg-slate-700 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="bg-zinc-200 dark:bg-zinc-700 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
                     <button
@@ -154,11 +165,11 @@ const Dashboard = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
                     <CategoryPieChart />
                 </div>
 
-                <div className="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
                     <DailyLineChart />
                 </div>
             </div>

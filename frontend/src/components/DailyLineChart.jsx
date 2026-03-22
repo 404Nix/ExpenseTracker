@@ -13,13 +13,13 @@ const DailyLineChart = () => {
     const { daily } = useSelector((state) => state.analytics);
 
     return (
-        <div className="bg-slate-800 p-4 rounded-xl shadow-md">
-            <div className="mb-3 text-sm font-semibold text-white">
+        <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-xl shadow-md">
+            <div className="mb-3 text-sm font-semibold text-zinc-900 dark:text-white">
                 Daily trend
             </div>
 
             {daily.length === 0 ? (
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-zinc-500 dark:text-gray-400">
                     No expenses yet for this month.
                 </div>
             ) : (
@@ -28,13 +28,13 @@ const DailyLineChart = () => {
                         <LineChart data={daily}>
                             <CartesianGrid
                                 strokeDasharray="3 3"
-                                stroke="#334155"
+                                stroke="#d4d4d8"
                             />
                             <XAxis
                                 dataKey="date"
-                                tick={{ fill: "#94a3b8", fontSize: 12 }}
+                                tick={{ fill: "#71717a", fontSize: 12 }}
                             />
-                            <YAxis tick={{ fill: "#94a3b8", fontSize: 12 }} />
+                            <YAxis tick={{ fill: "#71717a", fontSize: 12 }} />
                             <Tooltip />
                             <Line
                                 type="monotone"

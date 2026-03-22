@@ -44,21 +44,23 @@ const TransactionForm = () => {
     };
 
     return (
-        <div className="bg-slate-800 p-6 rounded-xl space-y-4">
-            <h2>Add Transaction</h2>
+        <div className="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-xl space-y-4">
+            <h2 className="text-zinc-900 dark:text-white font-semibold">
+                Add Transaction
+            </h2>
 
             {error && <p className="text-red-400 text-sm">{error}</p>}
 
             <input
                 type="number"
-                className="w-full p-2 bg-slate-700 rounded"
+                className="w-full p-2 bg-zinc-200 dark:bg-zinc-700 rounded text-zinc-900 dark:text-white placeholder:text-zinc-500"
                 placeholder="Amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
             />
 
             <select
-                className="w-full p-2 bg-slate-700 rounded"
+                className="w-full p-2 bg-zinc-200 dark:bg-zinc-700 rounded text-zinc-900 dark:text-white"
                 value={categoryId}
                 onChange={(e) => setCategoryId(e.target.value)}
             >
@@ -72,7 +74,7 @@ const TransactionForm = () => {
             </select>
 
             <input
-                className="w-full p-2 bg-slate-700 rounded"
+                className="w-full p-2 bg-zinc-200 dark:bg-zinc-700 rounded text-zinc-900 dark:text-white placeholder:text-zinc-500"
                 placeholder="Note"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
@@ -80,14 +82,14 @@ const TransactionForm = () => {
 
             <input
                 type="date"
-                className="w-full p-2 bg-slate-700 rounded"
+                className="w-full p-2 bg-zinc-200 dark:bg-zinc-700 rounded text-zinc-900 dark:text-white"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
             />
 
             <button
                 onClick={handleSubmit}
-                className="w-full bg-blue-500 p-2 rounded"
+                className="w-full bg-blue-500 hover:bg-blue-600 transition p-2 rounded text-white"
             >
                 Add
             </button>
