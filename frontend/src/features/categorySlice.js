@@ -31,7 +31,7 @@ export const addCategory = createAsyncThunk("categories/add", async (name) => {
 export const deleteCategory = createAsyncThunk(
     "categories/delete",
     async (id) => {
-        await fetch(`http://localhost:8000/api/categories/${id}`, {
+        await fetch(`${import.meta.env.VITE_ENDPOINT}/api/categories/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
