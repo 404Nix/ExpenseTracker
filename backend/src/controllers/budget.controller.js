@@ -10,7 +10,7 @@ export const updateInserBudget = async (req, res) => {
     const budget = await Budget.findOneAndUpdate(
         { userId, month: month },
         { $set: { amount: amount } },
-        { upsert: true, new: true },
+        { upsert: true, returnDocument: "after" },
     ).lean();
 
     res.json({
