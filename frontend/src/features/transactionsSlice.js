@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchTransactions = createAsyncThunk(
     "transactions/fetch",
     async () => {
-        const res = await fetch("http://localhost:8000/api/transactions", {
+        const res = await fetch(`${import.meta.env.VITE_ENDPOINT}/api/transactions`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -17,7 +17,7 @@ export const fetchTransactions = createAsyncThunk(
 export const addTransaction = createAsyncThunk(
     "transactions/add",
     async (body) => {
-        const res = await fetch("http://localhost:8000/api/transactions", {
+        const res = await fetch(`${import.meta.env.VITE_ENDPOINT}/api/transactions`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

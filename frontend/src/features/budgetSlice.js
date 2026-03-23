@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const updateBudget = createAsyncThunk(
     "budget/update",
     async ({ month, amount }) => {
-        const res = await fetch("http://localhost:8000/api/budgets", {
+        const res = await fetch(`${import.meta.env.VITE_ENDPOINT}/api/budgets`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

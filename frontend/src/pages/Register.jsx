@@ -10,7 +10,7 @@ const Register = () => {
     const [error, setError] = useState("");
 
     const handleRegister = async () => {
-        const res = await fetch("http://localhost:8000/api/auth/register", {
+        const res = await fetch(`${import.meta.env.VITE_ENDPOINT}/api/auth/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -19,6 +19,11 @@ const Register = () => {
         });
 
         const data = await res.json();
+
+        if(!email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i)) {
+            setError("Please enter a valid email address");
+            return;
+        }
 
         if (!res.ok) {
             setError(data.message);

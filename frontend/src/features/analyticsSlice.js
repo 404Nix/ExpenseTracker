@@ -4,7 +4,7 @@ export const fetchAnalytics = createAsyncThunk(
     "analytics/fetchAnalytics",
     async (month) => {
         const res = await fetch(
-            `http://localhost:8000/api/analytics?month=${month}`,
+            `${import.meta.env.VITE_ENDPOINT}/api/analytics?month=${month}`,
             {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchCategories = createAsyncThunk(
     "categories/fetch",
     async () => {
-        const res = await fetch("http://localhost:8000/api/categories", {
+        const res = await fetch(`${import.meta.env.VITE_ENDPOINT}/api/categories`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -15,7 +15,7 @@ export const fetchCategories = createAsyncThunk(
 );
 
 export const addCategory = createAsyncThunk("categories/add", async (name) => {
-    const res = await fetch("http://localhost:8000/api/categories", {
+    const res = await fetch(`${import.meta.env.VITE_ENDPOINT}/api/categories`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
