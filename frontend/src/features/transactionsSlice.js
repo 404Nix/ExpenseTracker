@@ -34,7 +34,7 @@ export const addTransaction = createAsyncThunk(
 export const deleteTransaction = createAsyncThunk(
     "transactions/delete",
     async (id) => {
-        await fetch(`http://localhost:8000/api/transactions/${id}`, {
+        await fetch(`${import.meta.env.VITE_ENDPOINT}/api/transactions/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
