@@ -4,6 +4,7 @@ import { fetchAnalytics } from "../features/analyticsSlice";
 import { updateBudget } from "../features/budgetSlice";
 import CategoryPieChart from "../components/CategoryPieChart";
 import DailyLineChart from "../components/DailyLineChart";
+import { useLoaderData } from "react-router-dom";
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,32 @@ const Dashboard = () => {
     useEffect(() => {
         dispatch(fetchAnalytics(month));
     }, [dispatch, month, transactions]);
+
+    const user = useLoaderData();
+
+    /**
+     *optimized user fetching by using loader in route definition, so it runs only once when the component mounts instead of on every render or month change.
+    const [user, setUser] = useState("");
+
+    useEffect(() => {
+        async function fetchUser() {
+            try {
+                fetch(`${import.meta.env.VITE_ENDPOINT}/api/auth/me`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                })
+                    .then((res) => res.json())
+                    .then((data) => setUser(data.user.name));
+            } catch (error) {
+                console.error("Error fetching user:", error);
+            }
+        }
+
+        fetchUser();
+    }, [user])
+    
+     */
 
     const handleBudgetSave = async () => {
         const inputAmount = Number(budgetInput);
@@ -61,7 +88,7 @@ const Dashboard = () => {
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-3xl font-bold tracking-tight">
-                        Dashboard
+                        Welcome, {user?.name || "User"}
                     </h1>
                     <p className="text-sm text-zinc-500 dark:text-gray-400">
                         Track your spending and stay on budget.

@@ -29,7 +29,31 @@ const router = createBrowserRouter(
                     </ProtectedRoute>
                 }
             >
-                <Route index element={<Dashboard />} />
+                <Route
+                    index
+                    element={<Dashboard />}
+                    loader={async () => {
+                        try {
+                            const res = await fetch(
+                                `${import.meta.env.VITE_ENDPOINT}/api/auth/me`,
+                                {
+                                    headers: {
+                                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                                    },
+                                },
+                            );
+
+                            if (!res.ok)
+                                throw new Error("Failed to fetch user");
+
+                            const data = await res.json();
+                            return data.user;
+                        } catch (error) {
+                            console.error("Error fetching user:", error);
+                            return null;
+                        }
+                    }}
+                />
                 <Route path="transactions" element={<Transactions />} />
             </Route>
         </>,
