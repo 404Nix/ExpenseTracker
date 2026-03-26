@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const categorySchema = mongoose.Schema(
+const categorySchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
-            reqired: [true, "userId is required"],
+            required: [true, "userId is required"],
             index: true,
         },
         name: {
