@@ -15,14 +15,16 @@ import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Transactions from "./pages/Transactions.jsx";
+import Hero from "./pages/Hero.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Hero />} />
             <Route
-                path="/"
+                path="/dashboard"
                 element={
                     <ProtectedRoute>
                         <App />

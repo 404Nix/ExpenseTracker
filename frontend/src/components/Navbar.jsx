@@ -25,7 +25,7 @@ const Navbar = () => {
 
             <div className="flex items-center gap-6 text-zinc-900 dark:text-white">
                 <NavLink
-                    to="/"
+                    to="/dashboard"
                     className={({ isActive }) =>
                         isActive
                             ? "text-blue-100 bg-blue-400 rounded-2xl px-3 py-1"
