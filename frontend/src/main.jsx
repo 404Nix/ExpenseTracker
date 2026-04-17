@@ -62,8 +62,8 @@ const router = createBrowserRouter(
                         }
                     }}
                 />
-                <Route path="/transactions" element={<Transactions />} />
             </Route>
+            <Route path="/transactions" element={<Transactions />} />
         </>,
     ),
 );
