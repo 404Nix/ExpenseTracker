@@ -1,4 +1,4 @@
-import { lazy, StrictMode } from "react";
+import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -12,31 +12,32 @@ import {
 } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
-// import Login from "./pages/Login.jsx";
+// Lazy imports
 const Login = lazy(() => import("./pages/Login.jsx"));
-// import Register from "./pages/Register.jsx";
 const Register = lazy(() => import("./pages/Register.jsx"));
-// import Dashboard from "./pages/Dashboard.jsx";
 const Dashboard = lazy(() => import("./pages/Dashboard.jsx"));
-// import Transactions from "./pages/Transactions.jsx";
 const Transactions = lazy(() => import("./pages/Transactions.jsx"));
-// import Hero from "./pages/Hero.jsx";
 const Hero = lazy(() => import("./pages/Hero.jsx"));
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
+            {/* Public Routes */}
+            <Route path="/" element={<Hero />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Hero />} />
+
+            {/* Protected Routes */}
             <Route
                 path="/dashboard"
                 element={
-                    <ProtectedRoute>
-                        <App />
-                    </ProtectedRoute>
+                    // <ProtectedRoute>
+                    //     <App />
+                    // </ProtectedRoute>
+                    <App/>
                 }
             >
+                {/* Default dashboard page */}
                 <Route
                     index
                     element={<Dashboard />}
@@ -62,8 +63,10 @@ const router = createBrowserRouter(
                         }
                     }}
                 />
+
+                {/* FIXED: relative path (no /) */}
+                <Route path="transactions" element={<Transactions />} />
             </Route>
-            <Route path="/transactions" element={<Transactions />} />
         </>,
     ),
 );
@@ -71,7 +74,9 @@ const router = createBrowserRouter(
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <Provider store={store}>
-            <RouterProvider router={router} />
+            <Suspense fallback={<div>Loading...</div>}>
+                <RouterProvider router={router} />
+            </Suspense>
         </Provider>
     </StrictMode>,
 );

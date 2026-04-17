@@ -36,7 +36,7 @@ const Navbar = () => {
                 </NavLink>
 
                 <NavLink
-                    to="/transactions"
+                    to="/dashboard/transactions"
                     className={({ isActive }) =>
                         isActive
                             ? "text-blue-100 bg-blue-400 rounded-2xl px-3 py-1"
